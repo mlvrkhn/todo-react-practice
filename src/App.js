@@ -9,20 +9,17 @@ class App extends Component {
     this.state = {
       tasks: [
         {
-        nr: '1',
-        desc: 'Test 1',
-        id: '1'
-      },
-      {
-        nr: '2',
-        desc: 'Test 2',
-        id: '2'
-      },
-      {
-        nr: '3',
-        desc: 'Test 3',
-        id: '3'
-      }
+        nr: 1,
+        desc: 'zzzzzzzzzzzzaaaaaaaaa'
+        },
+        {
+        nr: 2,
+        desc: 'zzzzzzzzzzzzaaaaaaaaa'
+        },
+        {
+        nr: 3,
+        desc: 'zzzzzzzzzzzzaaaaaaaaa'
+        },
     ],
       task: ''
     };
@@ -32,17 +29,32 @@ class App extends Component {
       task: event.target.value,
     })
   };
-  
+
   taskOnSubmit = event => {
     event.preventDefault();
 
-    this.setState( prevState => ({
-      tasks: {
-        ...prevState.tasks,
-        name: 'erni'
-      }
-    }))
+    this.setState({
+      tasks: this.state.tasks.concat(
+        {
+          nr: this.state.tasks.reduce((acc, task) => acc = acc > task.nr ? acc : task.nr, 0) + 1,
+          desc: this.state.task
+        }
+      ),
+      task: ''
+    })
   }
+  handleDelete = nr => {
+    this.setState({
+      tasks: this.state.tasks.filter(task => task.nr !== nr)
+    });
+  };
+
+  // test with loop - maybe useful for updating many values at once, but why?
+  //   this.setState((state) => {
+  //     state.tasks.map(task => {
+  //       task.nr += 1;
+  //       console.log(task);
+  //       return task;
 
   render() {
     const { task, tasks } = this.state;
@@ -59,7 +71,7 @@ class App extends Component {
               <button type="submit" className="btn btn-primary">Add task</button>
             </div>
           </form>
-          <Overview tasks={tasks}/>
+          <Overview tasks={tasks} handleDelete={this.handleDelete}/>
       </div>
     )
   }

@@ -3,6 +3,7 @@ import React from 'react';
 import uniqid from 'uniqid';
 
 const Overview = (props) => {
+
     const { tasks } = props;
     const delBtnStyle = {
         backgroundColor: '#FF6961',
@@ -12,18 +13,23 @@ const Overview = (props) => {
         cursor: 'pointer',
         color: '#fff',
         border: 'none',
-        transform: 'scale(0.7)'
+        transform: 'scale(0.7)',
+        outline: 'none'
     }
     
     const liStyle = {
         fontSize: '1.2em'
     };
 
+    
+
     return (
         <ul>
             {tasks.map(task => {
                 return (
-                <p style={ liStyle } key={uniqid()}>{task.nr}. {task.desc}</p>
+                <p style={ liStyle } key={uniqid()}>{task.nr}. {task.desc}
+                    <button onClick={props.handleDelete.bind(this, task.nr)} style={ delBtnStyle }>X</button>
+                </p>
                 )
             })}
         </ul>
