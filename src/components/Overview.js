@@ -1,5 +1,4 @@
 import React from 'react';
-// import App from '../App';
 import uniqid from 'uniqid';
 
 const Overview = (props) => {
@@ -20,8 +19,6 @@ const Overview = (props) => {
     const liStyle = {
         fontSize: '1.2em'
     };
-
-    
 
     return (
         <ul>

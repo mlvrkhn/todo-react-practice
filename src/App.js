@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Overview from './components/Overview'
 
-
 class App extends Component {
   constructor() {
     super();
@@ -10,15 +9,15 @@ class App extends Component {
       tasks: [
         {
         nr: 1,
-        desc: 'zzzzzzzzzzzzaaaaaaaaa'
+        desc: 'Feed the cat'
         },
         {
         nr: 2,
-        desc: 'zzzzzzzzzzzzaaaaaaaaa'
+        desc: 'Get the milk'
         },
         {
         nr: 3,
-        desc: 'zzzzzzzzzzzzaaaaaaaaa'
+        desc: 'Order pizza without pineapple'
         },
     ],
       task: ''
@@ -48,13 +47,6 @@ class App extends Component {
       tasks: this.state.tasks.filter(task => task.nr !== nr)
     });
   };
-
-  // test with loop - maybe useful for updating many values at once, but why?
-  //   this.setState((state) => {
-  //     state.tasks.map(task => {
-  //       task.nr += 1;
-  //       console.log(task);
-  //       return task;
 
   render() {
     const { task, tasks } = this.state;
