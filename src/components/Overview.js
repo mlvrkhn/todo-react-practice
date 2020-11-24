@@ -1,3 +1,5 @@
+// Overview.js
+
 import React from 'react';
 import uniqid from 'uniqid';
 
@@ -13,13 +15,11 @@ const Overview = (props) => {
         color: '#fff',
         border: 'none',
         transform: 'scale(0.7)',
-        outline: 'none'
+        outline: 'none',
     }
-    
     const liStyle = {
         fontSize: '1.2em'
     };
-
     return (
         <ul>
             {tasks.map(task => {
